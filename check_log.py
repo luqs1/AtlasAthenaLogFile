@@ -17,7 +17,7 @@ warningRegex = ['WARNING']
 def main():
     parseOptions()
     parseConfig()
-    #scanLogfile()
+    scanLogfile()
     #printResults()
 
 def parseOptions():
@@ -39,7 +39,7 @@ def parseOptions():
     default = False,
     help ='check in addition for WARNING messages (default False)'
     )
-    parser.add_argument('--errors', #thinking of changing to --noerrors? will it cause issues
+    parser.add_argument('--errors', #thinking of changing to --noerrors? will check based on usage in existing system. Highly recommend.
     action = 'store_false',
     default = True,
     help = 'check errors (default true)'
@@ -47,7 +47,7 @@ def parseOptions():
     global args
     args = parser.parse_args()
     print(args)
-    if not (args.errors or args.warnings):
+    if not (args.errors or args.warnings): #Will have to make it |not args.noterrors| if change made in line 42.
         print('error: at least one of errors and warnings must be enabled')
 
 def parseConfig():
@@ -69,19 +69,20 @@ def scanLogfile():
     if args.errors == True:
         pattern.extend(errorRegex)
     msgLevels = re.compile('|'.join(pattern))
+    print(msgLevels)
     igLevels = re.compile('|'.join(ignorePattern))
+    print(igLevels)
     #print(pattern)
     logFileAddress = args.logfile
     with open(logFileAddress,'r') as logFile:
         for line in logFile:
             if re.search(msgLevels,line):
+                print('Accepted',line);
                 results.append(line)
-    results2 = []
-    for i in range(results):
-        if not re.search(igLevels,i):
+    results1 = []
+    for i in range(len(results)):
+        if not re.search(igLevels,results[i]):
             pass
         else:
             results1.append(results[i])
 main()
-
-    
