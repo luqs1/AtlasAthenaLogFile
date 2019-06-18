@@ -1,0 +1,610 @@
+Mon Jun 17 03:46:42 CEST 2019
+Preloading tcmalloc_minimal.so
+Preloading libimf.so
+Preloading libintlc.so.5
+Py:Athena            INFO using release [Athena-22.0.2] [x86_64-centos7-gcc8-opt] [master/20a5f1f181] -- built on [2019-06-16T2127]
+Py:Athena            INFO including file "AthenaCommon/Preparation.py"
+Py:Athena            INFO including file "AthenaCommon/Atlas.UnixStandardJob.py"
+Py:Athena            INFO executing ROOT6Setup
+Py:Athena            INFO configuring AthenaHive with [1] concurrent threads and [1] concurrent events
+Py:AlgScheduler      INFO setting up AvalancheSchedulerSvc/AvalancheSchedulerSvc with 1 threads
+Py:Athena            INFO including file "AthenaCommon/Execution.py"
+Py:Athena            INFO including file "TrigUpgradeTest/simpleJetJob.py"
+Py:Athena            INFO including file "TrigUpgradeTest/testHLT_MT.py"
+Py:testHLT_MT.py     INFO Setup options:
+         condOverride = (Default) {}
+   disabledSignatures = (Default) []
+          doBjetSlice = (Default) True
+      doBphysicsSlice = (Default) True
+               doCalo = (Default) True
+      doCombinedSlice = (Default) True
+           doDBConfig = (Default) None
+      doElectronSlice = (Default) True
+          doEmptyMenu = (Default) False
+                doHLT = (Default) True
+                 doID = (Default) True
+           doJetSlice = (Default) True
+              doL1Sim = (Default) False
+        doL1Unpacking = (Default) True
+           doMETSlice = (Default) True
+               doMuon = (Default) True
+          doMuonSlice = (Default) True
+        doPhotonSlice = (Default) True
+           doTauSlice = (Default) True
+       enableCostD3PD = (Default) False
+    enabledSignatures = (Default) []
+             isOnline = (Default) False
+          setDetDescr = (Default) None
+         setGlobalTag = (Default) None
+           setLVL1XML = (Default) TriggerMenuMT/LVL1config_LS2_v1.xml
+           setupForMC = (Default) None
+             trigBase = (Default) None
+           useCONDBR2 = (Default) True
+Py:AthFile           INFO opening [/cvmfs/atlas-nightlies.cern.ch/repo/data/data-art/TrigP1Test/data17_13TeV.00327265.physics_EnhancedBias.merge.RAW._lb0100._SFO-1._0001.1]...
+         condOverride = (Default) {}
+   disabledSignatures = (Default) []
+          doBjetSlice = (Default) True
+      doBphysicsSlice = (Default) True
+               doCalo = (Default) True
+      doCombinedSlice = (Default) True
+           doDBConfig = (Default) None
+      doElectronSlice = (Default) True
+          doEmptyMenu = (Default) False
+                doHLT = (Default) True
+                 doID = (Default) True
+           doJetSlice = (Default) True
+              doL1Sim = (Default) False
+        doL1Unpacking = (Default) True
+           doMETSlice = (Default) True
+               doMuon = (Default) True
+          doMuonSlice = (Default) True
+        doPhotonSlice = (Default) True
+           doTauSlice = (Default) True
+       enableCostD3PD = (Default) False
+    enabledSignatures = (Default) []
+             isOnline = (Default) False
+          setDetDescr = (Default) None
+         setGlobalTag = (Default) None
+           setLVL1XML = (Default) TriggerMenuMT/LVL1config_LS2_v1.xml
+           setupForMC = (Default) None
+             trigBase = (Default) None
+           useCONDBR2 = (Default) True
+Py:testHLT_MT.py     INFO Configured the following global flags:
+Py:JobProperty ::    INFO  --> JobProperties.Global.ConditionsTag = 'CONDBR2-BLKPA-2018-13' 
+Py:JobProperty ::    INFO  --> JobProperties.Global.DataSource = 'data' 
+Py:JobProperty ::    INFO  --> JobProperties.Global.DatabaseInstance = 'CONDBR2' 
+Py:JobProperty ::    INFO  --> JobProperties.Global.DetDescrVersion = 'ATLAS-R2-2016-01-00-01' 
+Py:JobProperty ::    INFO  --> JobProperties.Global.DetGeo = 'atlas' 
+Py:JobProperty ::    INFO  --> JobProperties.Global.InputFormat = 'bytestream' 
+Py:JobProperty ::    INFO  --> JobProperties.Global.Luminosity = None 
+Py:JobProperty ::    INFO  --> JobProperties.Global.isOverlay = False 
+Py:TriggerFlags.doHLT    INFO doHLT is True: force doLVL2=False and doEF=False
+WARNING: using modifier: BFieldAutoConfig
+
+    Read field currents from configuration ptree (athenaHLT)
+    
+WARNING: using modifier: DisableMdtT0Fit
+
+    Disable MDT T0 re-fit and use constants from COOL instead
+    
+WARNING: using modifier: ForceMuonDataType
+
+    Hardcode muon data to be of type of atlas
+      this determines which cabling service to use
+    
+WARNING: using modifier: UseBackExtrapolatorDataForMuIso
+
+   Enables the usage of the BackExtrapolator derived from data
+   
+WARNING: using modifier: UseBeamSpotFlagForBjet
+
+    Enables the beam spot status flag check for b-jet
+    
+WARNING: using modifier: UseLUTFromDataForMufast
+
+    Enables the usage of the LUTs derived from data
+    
+WARNING: using modifier: UseParamFromDataForBjet
+
+    Enables the usage of the JetProb calibration derived from data
+    
+WARNING: using modifier: UseRPCTimeDelayFromDataForMufast
+
+    Enables the RPC timing shift correction in data
+    
+WARNING: using modifier: allowCOOLUpdates
+
+    Enable COOL folder updates during the run
+    
+WARNING: using modifier: enableHotIDMasking
+
+    Masking of hot pixel and SCT modules enabled in L2 spacepoint provider
+    
+WARNING: using modifier: forceTileRODMap
+
+    Configure Tile ROD map based on run-number (ATR-16290)
+    
+WARNING: using modifier: noLArCalibFolders
+
+    We should not use LAr electronics calibration data
+    
+WARNING: using modifier: openThresholdRPCCabling
+
+    RPC cabling need to tell CMA to use open thresholds
+    see http://alxr.usatlas.bnl.gov/lxr/source/atlas/MuonSpectrometer/MuonCablings/RPCcabling/src/EtaCMA.cxx#448
+    and other entries at http://alxr.usatlas.bnl.gov/lxr/ident?i=cosmic
+    
+WARNING: using modifier: useHLTMuonAlign
+
+    Apply muon alignment
+    
+WARNING: using modifier: useNewRPCCabling
+
+    Switch to new RPC cabling code
+    
+WARNING: using modifier: useOnlineLumi
+
+    Use online LuminosityTool
+    
+WARNING: using modifier: useOracle
+
+    Disable the use of SQLite for COOL and geometry
+    
+              : bpipe pixel   SCT   TRT   BCM   DBM Lucid   ZDC  ALFA   AFP FwdRegion    em   HEC  FCal  Tile   MDT   CSC   TGC   RPC  sTGC Micromegas Truth  LVL1 BField   FTK
+          dcs :    --    --    --    --    --    --    --    --    --    --        --    --    --    --    --    --    --    --    --    --         --    --    --     --    --
+     detdescr :    ON    ON    ON    ON    ON    ON    --    --    --    --        --    ON    ON    ON    ON    ON    ON    ON    ON    ON         ON    --    --     --    --
+     digitize :    --    --    --    --    --    --    --    --    --    --        --    --    --    --    --    --    --    --    --    --         --    --    --     --    --
+     geometry :    --    --    --    --    --    --    --    --    --    --        --    --    --    --    --    --    --    --    --    --         --    --    --     --    --
+      haveRDO :    --    --    --    --    --    --    --    --    --    --        --    --    --    --    --    --    --    --    --    --         --    --    --     --    --
+      haveRIO :    ON    ON    ON    ON    ON    ON    ON    ON    ON    ON        ON    ON    ON    ON    ON    ON    ON    ON    ON    ON         ON    ON    ON     ON    ON
+      makeRIO :    ON    ON    ON    ON    ON    ON    ON    ON    ON    ON        ON    ON    ON    ON    ON    ON    ON    ON    ON    ON         ON    ON    ON     ON    ON
+      overlay :    --    --    --    --    --    --    --    --    --    --        --    --    --    --    --    --    --    --    --    --         --    --    --     --    --
+       pileup :    --    --    --    --    --    --    --    --    --    --        --    --    --    --    --    --    --    --    --    --         --    --    --     --    --
+    readRDOBS :    --    --    --    --    --    --    --    --    --    --        --    --    --    --    --    --    --    --    --    --         --    --    --     --    --
+  readRDOPool :    --    --    --    --    --    --    --    --    --    --        --    --    --    --    --    --    --    --    --    --         --    --    --     --    --
+    readRIOBS :    --    --    --    --    --    --    --    --    --    --        --    --    --    --    --    --    --    --    --    --         --    --    --     --    --
+  readRIOPool :    --    --    --    --    --    --    --    --    --    --        --    --    --    --    --    --    --    --    --    --         --    --    --     --    --
+     simulate :    --    --    --    --    --    --    --    --    --    --        --    --    --    --    --    --    --    --    --    --         --    --    --     --    --
+ simulateLVL1 :    --    --    --    --    --    --    --    --    --    --        --    --    --    --    --    --    --    --    --    --         --    --    --     --    --
+      writeBS :    --    --    --    --    --    --    --    --    --    --        --    --    --    --    --    --    --    --    --    --         --    --    --     --    --
+ writeRDOPool :    --    --    --    --    --    --    --    --    --    --        --    --    --    --    --    --    --    --    --    --         --    --    --     --    --
+ writeRIOPool :    --    --    --    --    --    --    --    --    --    --        --    --    --    --    --    --    --    --    --    --         --    --    --     --    --
+Py:Athena            INFO Importing MuonRecExample.MuonRecUtils
+Py:Athena            INFO Importing MuonCnvExample.MuonCnvUtils
+Py:Athena            INFO Importing module MuonCnvExample.MuonCalibFlags
+Py:MuonCnvExample.MuonCalibFlags    INFO Changing default correctMdtRtForBField = True
+Py:MuonCnvExample.MuonCalibFlags    INFO Changing default correctMdtRtForTimeSlewing = True
+Py:MuonRec           INFO Importing MuonRecExample.MuonRecFlags
+Py:MuonRec           INFO Changing default applyResilience = True
+Py:MuonRec           INFO Changing default doMSVertex = True
+Py:MuonRec           INFO Changing default enableErrorTuning = True
+Py:MuonRec           INFO Changing default useAlignmentCorrections = True
+Py:JobProperty ::    INFO The JobProperty LoadElecCalib is blocked
+Py:Athena            INFO Importing MuonCnvExample.MuonCnvFlags
+Py:MuonCnvExample.MuonCnvFlags    INFO Changing default TgcCablingMode = '12-fold'
+Py:ConfigurableDb    INFO Read module info for 5484 configurables from 2 genConfDb files
+Py:ConfigurableDb    INFO No duplicates have been found: that's good !
+EventInfoMgtInit: Got release version  Athena-2019-06-16T2127
+Py:IOVDbSvc.CondDB    INFO Setting up conditions DB access to instance CONDBR2
+Py:LuminosityTool    INFO Created online LuminosityTool using folder /TRIGGER/LUMI/HLTPrefLumi
+Py:OnlineLumiCalibrationTool    INFO OnlineLumiCalibrationToolDefault requested /TDAQ/OLC/CALIBRATIONS
+Py:LuminosityTool    INFO LuminosityToolOnline added tool OnlineLumiCalibrationTool
+Py:Athena            INFO including file "RecExCond/AllDet_detDescr.py"
+Py:Athena            INFO including file "RecExCond/RecExCommon_DetFlags.py"
+Py:RecExCommon_DetFlags    INFO DetFlags already defined.by user : user should have fully configured it already! 
+Py:MuonRec           INFO DetFlags.readRDOBS.MDT_setOn()
+Py:MuonRec           INFO DetFlags.readRDOBS.RPC_setOn()
+Py:MuonRec           INFO DetFlags.readRDOBS.CSC_setOn()
+Py:MuonRec           INFO DetFlags.readRDOBS.TGC_setOn()
+Py:Athena            INFO including file "IdDictDetDescrCnv/IdDictDetDescrCnv_joboptions.py"
+SetGeometryVersion.py obtained major release version 22
+Py:ConfiguredFactory    INFO imported 132 confDb modules in 0.11 seconds
+Py:Athena            INFO including file "TileConditions/TileConditions_jobOptions.py"
+Py:TileInfoConf.     INFO Adding TileCablingSvc to ServiceMgr
+Py:MetaReader        INFO Current mode used: peeker
+Py:TileConditions_jobOptions.py    INFO Forcing RUN2 (2014-2017) cabling for run 327265 with geometry ATLAS-R2-2016-01-00-01
+Py:TileConditions_jobOptions.py    INFO Adjusting TileInfo for 7 samples
+Py:TileConditions_jobOptions.py    INFO setting up COOL for TileCal conditions data
+Py:TileInfoConf.     INFO Changing default TileBadChanTool configuration to COOL source
+Py:TileInfoConf.     INFO Changing default TileCondToolEmscale configuration to COOL source
+Py:TileInfoConf.     INFO Changing default TileCondToolNoiseSample configuration to COOL source
+Py:TileInfoConf.     INFO Changing default TileCondToolTiming configuration to COOL source
+Py:TileConditions_jobOptions.py    INFO Adjusting TileInfo to return cell noise for Opt.Filter without iterations
+Py:Athena            INFO including file "CaloIdCnv/CaloIdCnv_joboptions.py"
+Py:Athena            INFO including file "CaloConditions/CaloConditions_jobOptions.py"
+Py:Athena            INFO including file "CaloConditions/LArTTCellMap_ATLAS_jobOptions.py"
+Py:Athena            INFO including file "CaloConditions/CaloTTIdMap_ATLAS_jobOptions.py"
+Py:Athena            INFO including file "TileIdCnv/TileIdCnv_jobOptions.py"
+Py:Athena            INFO including file "LArDetDescr/LArDetDescr_joboptions.py"
+now initializing the LAr readout geometry : standard Atlas flavour
+Py:Athena            INFO including file "LArConditionsCommon/LArConditionsCommon_comm_jobOptions.py"
+Py:Athena            INFO including file "LArConditionsCommon/LArIdMap_comm_jobOptions.py"
+Py:Athena            INFO including file "InDetBeamSpotService/BeamCondSvc.py"
+Py:Athena            INFO including file "AmdcAth/AmdcAth_jobOptions.py"
+Py:Athena            INFO Importing MagFieldServices.SetupField
+Py:Athena            INFO Importing MagFieldServices.MagFieldServicesConfig
+Py:RegSelSvc::__init__     INFO entering
+Py:Athena            INFO including file "InDetRecExample/InDetRecCabling.py"
+/***** Service PixelCablingSvc/PixelCablingSvc *****************************************************
+|-AuditFinalize          = False
+|-AuditInitialize        = False
+|-AuditReinitialize      = False
+|-AuditRestart           = False
+|-AuditServices          = False
+|-AuditStart             = False
+|-AuditStop              = False
+|-Bandwidth              = 0
+|-ConnectivityTag        = 'PIT-ALL-V39'
+|-Coral_Connectionstring = 'oracle://ATLAS_COOLPROD/ATLAS_COOLONL_PIXEL'
+|-DictionaryTag          = 'PIXEL'
+|-DumpMapToFile          = False
+|-Key                    = '/PIXEL/ReadoutSpeed'
+|-KeyCabling             = '/PIXEL/CablingMap'  (default: '/PIXEL/CablingMap')
+|-KeyFEI4                = '/PIXEL/HitDiscCnfg'
+|-MappingFile            = 'PixelCabling/Pixels_Atlas_IdMapping_2016.dat'
+|                        (default: 'PixelCabling/Pixels_Atlas_IdMapping_2016.dat')
+|-MappingType            = 'COOL'  (default: 'COOL')
+|-OutputLevel            = 0
+\----- (End of Service PixelCablingSvc/PixelCablingSvc) --------------------------------------------
+/***** Algorithm SCT_CablingCondAlgFromCoraCool/SCT_CablingCondAlgFromCoraCool *********************
+|-AuditAlgorithms            = False
+|-AuditBeginRun              = False
+|-AuditEndRun                = False
+|-AuditExecute               = False
+|-AuditFinalize              = False
+|-AuditInitialize            = False
+|-AuditReinitialize          = False
+|-AuditRestart               = False
+|-AuditStart                 = False
+|-AuditStop                  = False
+|-Cardinality                = 0
+|-CondSvc                    = ServiceHandle('CondSvc')
+|-DetStore                   = ServiceHandle('StoreGateSvc/DetectorStore')
+|-Enable                     = True
+|-ErrorCounter               = 0
+|-ErrorMax                   = 1
+|-EvtStore                   = ServiceHandle('StoreGateSvc')
+|-ExtraInputs                = []  (default: [])
+|-ExtraOutputs               = []  (default: [])
+|-FilterCircularDependencies = True
+|-IsIOBound                  = False
+|-MonitorService             = 'MonitorSvc'
+|-NeededResources            = []  (default: [])
+|-OutputLevel                = 0
+|-ReadKeyGeo                 = '/SCT/DAQ/Config/Geog'  (default: 'ConditionStore+/SCT/DAQ/Config/Geog')
+|-ReadKeyMur                 = '/SCT/DAQ/Config/MUR'  (default: 'ConditionStore+/SCT/DAQ/Config/MUR')
+|-ReadKeyRod                 = '/SCT/DAQ/Config/ROD'  (default: 'ConditionStore+/SCT/DAQ/Config/ROD')
+|-ReadKeyRodMur              = '/SCT/DAQ/Config/RODMUR'  (default: 'ConditionStore+/SCT/DAQ/Config/RODMUR')
+|-RegisterForContextService  = False
+|-Timeline                   = True
+|-WriteKey                   = 'ConditionStore+SCT_CablingData'
+\----- (End of Algorithm SCT_CablingCondAlgFromCoraCool/SCT_CablingCondAlgFromCoraCool) ------------
+/***** Public AlgTool TRT_FillCablingData_DC3/TRT_FillCablingData_DC3 ******************************
+|-AuditFinalize     = False
+|-AuditInitialize   = False
+|-AuditReinitialize = False
+|-AuditRestart      = False
+|-AuditStart        = False
+|-AuditStop         = False
+|-AuditTools        = False
+|-DetStore          = ServiceHandle('StoreGateSvc/DetectorStore')
+|-EvtStore          = ServiceHandle('StoreGateSvc')
+|-ExtraInputs       = []  (default: [])
+|-ExtraOutputs      = []  (default: [])
+|-Filename          = ''
+|-MonitorService    = 'MonitorSvc'
+|-OutputLevel       = 0
+|-RealData          = True  (default: False)
+\----- (End of Public AlgTool TRT_FillCablingData_DC3/TRT_FillCablingData_DC3) ---------------------
+/***** Service TRT_CablingSvc/TRT_CablingSvc *******************************************************
+|-AuditFinalize     = False
+|-AuditInitialize   = False
+|-AuditReinitialize = False
+|-AuditRestart      = False
+|-AuditServices     = False
+|-AuditStart        = False
+|-AuditStop         = False
+|-OutputLevel       = 0
+\----- (End of Service TRT_CablingSvc/TRT_CablingSvc) ----------------------------------------------
+Py:TrigDataAccess    INFO Not possible anymore to enable HLT calo offset correction, tools deprecated
+Py:CaloNoiseToolDefault    INFO  Using CaloNoiseToolDB
+Py:CaloNoiseToolDBData::__init__     INFO entering
+Py:CaloNoiseToolDBData::__init__     INFO offline mode: use luminosity from /CALO/Ofl/Noise/PileUpNoiseLumi to scale pileup noise
+Py:CaloNoiseToolDBData::__init__     INFO Run2 & doLArHVCorr=True: Will rescale noise automatically for HV trips
+Py:Athena            INFO importing module 'MuonCnvExample.MuonCablingConfig'
+Py:MuonCnvExample.MuonCnvFlags    INFO Changing default TgcCablingMode = 'auto'
+Py:MuonCnvExample.MuonCnvFlags    INFO Changing default TgcCablingMode = '12-fold'
+Py:Athena            INFO configuring Muon cabling in MuonCablingConfig
+Py:Athena            INFO importing the MetaReader for MuoncablingConfig
+Py:MetaReader        INFO Current mode used: full
+Py:Athena            INFO No metadata/Taginfo found. Using normal configuration for RPC
+Py:Athena            INFO RPC cabling is using mode: new
+Py:Athena            INFO TGC cabling is using mode: 12-fold
+Py:Athena            INFO MDT cabling is using mode: new
+Py:Athena            INFO Adding MDT/CABLING folders to conddb
+Py:Athena            INFO Importing MuonRecExample.MuonReadCalib
+Py:Athena            INFO Importing MuonCnvExample.MuonCalibConfig
+Py:MuonCnvExample.MuonCalibConfig.setupCscCondDB()    INFO This is for OffLine so T0Base and T0Phase folders are added!!
+Py:Athena            INFO including file "MuonRecExample/MuonRecLoadTools.py"
+Py:Athena            INFO Importing MuonRecExample.MuonRecTools
+[ TrackingGeometrySvc ]     base material tag :  AtlasLayerMat_v21_
+[ TrackingGeometrySvc ]     translated to COOL:  /GLOBAL/TrackingGeo/LayerMaterialV2<tag>TagInfoMajor/AtlasLayerMat_v21_/GeoAtlas</tag>
+Py:TrigGenericMonitoringToolConfig.py    INFO Using thread-safe TrigGenericMonitoringTool
+Py:Athena            INFO Importing MuonRecExample.CscTools
+Py:MuonAlign         INFO Changing default UseAlines = 'all'
+Py:MuonAlign         INFO Changing default UseBlines = 'all'
+Py:MuonAlign         INFO Changing default UseIlines = True
+Py:MuonAlign         INFO Changing default UseAsBuilt = True
+Py:MuonAlign         INFO Running a reconstruction job on data: UseAlines='all' UseBlines='all' UseIlines=True UseAsBuilt=True
+Py:ConfiguredFactory    INFO Instantiated direct resolved clone Trk__RungeKuttaPropagator('SLPropagator') from original 'AtlasRungeKuttaPropagator'
+Py:Athena            INFO Importing MuonRecExample.MooreTools
+non-online CONDBR2      |- DatabaseInstance = 'CONDBR2' (Default: 'auto')      |- DataSource = 'data' (Default: 'geant4')      |- ConditionsTag = 'CONDBR2-BLKPA-2018-13' (Default: 'OFLCOND-RUN12-SDR-31')
+Py:MDT_DCSConditionsRun2Tool    INFO Adding folder DCS_OFL:/MDT/DCS/LV to IOVDbSvc
+Py:MDT_DCSConditionsRun2Tool    INFO Adding folder DCS_OFL:/MDT/DCS/HV to IOVDbSvc
+Py:ConfiguredFactory    INFO Instantiated configurable Muon__DCMathSegmentMaker('MCTBDCMathSegmentMaker') as clone of 'DCMathSegmentMaker'
+Py:Athena            INFO including file "TriggerRelease/jobOfragment_ReadBS_standalone.py"
+Py:TrigConfigSvcConfig.py    INFO Found XML file: /build/atnight/localbuilds/nightlies/master/build/install/Athena/22.0.2/InstallArea/x86_64-centos7-gcc8-opt/XML/TriggerMenuMT/LVL1config_LS2_v1.xml
+InDetJobProperties::setupDefaults():  jobproperties.Beam.beamType() is collisions bunch spacing is 25
+Py:Athena            INFO including file "InDetRecExample/InDetRecConditionsAccess.py"
+/***** Public AlgTool PixelConditionsSummaryTool/PixelConditionsSummaryTool ************************
+|-AuditFinalize          = False
+|-AuditInitialize        = False
+|-AuditReinitialize      = False
+|-AuditRestart           = False
+|-AuditStart             = False
+|-AuditStop              = False
+|-AuditTools             = False
+|-DetStore               = ServiceHandle('StoreGateSvc/DetectorStore')
+|-EvtStore               = ServiceHandle('StoreGateSvc')
+|-ExtraInputs            = []  (default: [])
+|-ExtraOutputs           = []  (default: [])
+|-IsActiveStates         = ['READY']  (default: ['READY'])
+|-IsActiveStatus         = ['OK']  (default: ['OK'])
+|-MonitorService         = 'MonitorSvc'
+|-OutputLevel            = 0
+|-PixelDCSStateCondData  = 'ConditionStore+PixelDCSStateCondData'
+|-PixelDCSStatusCondData = 'ConditionStore+PixelDCSStatusCondData'
+|-PixelModuleData        = 'ConditionStore+PixelModuleData'
+|-PixelTDAQCondData      = 'ConditionStore+PixelTDAQCondData'
+|-UseByteStream          = True  (default: False)
+|-UseDCSState            = False  (default: False)
+|-UseDeadMap             = True  (default: True)
+|-UseTDAQ                = False  (default: False)
+\----- (End of Public AlgTool PixelConditionsSummaryTool/PixelConditionsSummaryTool) ---------------
+/***** Service PixelByteStreamErrorsSvc/PixelByteStreamErrorsSvc ***********************************
+|-AuditFinalize     = False
+|-AuditInitialize   = False
+|-AuditReinitialize = False
+|-AuditRestart      = False
+|-AuditServices     = False
+|-AuditStart        = False
+|-AuditStop         = False
+|-BSErrContainer    = 'PixelByteStreamErrs'
+|-OutputLevel       = 0
+|-ReadingESD        = False
+\----- (End of Service PixelByteStreamErrorsSvc/PixelByteStreamErrorsSvc) --------------------------
+/***** Private AlgTool SCT_ConditionsSummaryTool/InDetSCT_ConditionsSummaryTool ********************
+|-AuditFinalize     = False
+|-AuditInitialize   = False
+|-AuditReinitialize = False
+|-AuditRestart      = False
+|-AuditStart        = False
+|-AuditStop         = False
+|-AuditTools        = False
+|-ConditionsTools   = PrivateToolHandleArray([])
+|-DetStore          = ServiceHandle('StoreGateSvc/DetectorStore')
+|-EvtStore          = ServiceHandle('StoreGateSvc')
+|-ExtraInputs       = []  (default: [])
+|-ExtraOutputs      = []  (default: [])
+|-MonitorService    = 'MonitorSvc'
+|-OutputLevel       = 0
+\----- (End of Private AlgTool SCT_ConditionsSummaryTool/InDetSCT_ConditionsSummaryTool) -----------
+/***** Private AlgTool SCT_ConfigurationConditionsTool/InDetSCT_ConfigurationConditionsTool ********
+|-AuditFinalize           = False
+|-AuditInitialize         = False
+|-AuditReinitialize       = False
+|-AuditRestart            = False
+|-AuditStart              = False
+|-AuditStop               = False
+|-AuditTools              = False
+|-CondKey                 = 'ConditionStore+SCT_ConfigurationCondData'
+|-DetStore                = ServiceHandle('StoreGateSvc/DetectorStore')
+|-EvtStore                = ServiceHandle('StoreGateSvc')
+|-ExtraInputs             = []  (default: [])
+|-ExtraOutputs            = []  (default: [])
+|-MonitorService          = 'MonitorSvc'
+|-OutputLevel             = 0
+|-SCTDetEleCollKey        = 'ConditionStore+SCT_DetectorElementCollection'
+|-checkStripsInsideModule = True
+\----- (End of Private AlgTool SCT_ConfigurationConditionsTool/InDetSCT_ConfigurationConditionsTool) -----
+/***** Private AlgTool SCT_ReadCalibDataTool/InDetSCT_ReadCalibDataTool ****************************
+|-AuditFinalize     = False
+|-AuditInitialize   = False
+|-AuditReinitialize = False
+|-AuditRestart      = False
+|-AuditStart        = False
+|-AuditStop         = False
+|-AuditTools        = False
+|-CondKeyGain       = 'ConditionStore+SCT_CalibDefectNPtGain'
+|-CondKeyInfo       = 'ConditionStore+SCT_AllGoodStripInfo'
+|-CondKeyNoise      = 'ConditionStore+SCT_CalibDefectNPtNoise'
+|-DetStore          = ServiceHandle('StoreGateSvc/DetectorStore')
+|-EvtStore          = ServiceHandle('StoreGateSvc')
+|-ExtraInputs       = []  (default: [])
+|-ExtraOutputs      = []  (default: [])
+|-MonitorService    = 'MonitorSvc'
+|-OutputLevel       = 0
+|-SCTDetEleCollKey  = 'ConditionStore+SCT_DetectorElementCollection'
+|-SCT_CablingTool   = PrivateToolHandle('SCT_CablingTool/SCT_CablingTool')
+\----- (End of Private AlgTool SCT_ReadCalibDataTool/InDetSCT_ReadCalibDataTool) -------------------
+/***** Private AlgTool SCT_FlaggedConditionTool/InDetSCT_FlaggedConditionTool **********************
+|-AuditFinalize         = False
+|-AuditInitialize       = False
+|-AuditReinitialize     = False
+|-AuditRestart          = False
+|-AuditStart            = False
+|-AuditStop             = False
+|-AuditTools            = False
+|-DetStore              = ServiceHandle('StoreGateSvc/DetectorStore')
+|-EvtStore              = ServiceHandle('StoreGateSvc')
+|-ExtraInputs           = []  (default: [])
+|-ExtraOutputs          = []  (default: [])
+|-MaxNumWarnForFailures = 5
+|-MonitorService        = 'MonitorSvc'
+|-OutputLevel           = 0
+|-SCT_FlaggedCondData   = 'StoreGateSvc+SCT_FlaggedCondData'
+\----- (End of Private AlgTool SCT_FlaggedConditionTool/InDetSCT_FlaggedConditionTool) -------------
+/***** Private AlgTool SCT_MonitorConditionsTool/InDetSCT_MonitorConditionsTool ********************
+|-AuditFinalize     = False
+|-AuditInitialize   = False
+|-AuditReinitialize = False
+|-AuditRestart      = False
+|-AuditStart        = False
+|-AuditStop         = False
+|-AuditTools        = False
+|-CondKey           = 'ConditionStore+SCT_MonitorCondData'
+|-DetStore          = ServiceHandle('StoreGateSvc/DetectorStore')
+|-EvtStore          = ServiceHandle('StoreGateSvc')
+|-ExtraInputs       = []  (default: [])
+|-ExtraOutputs      = []  (default: [])
+|-MonitorService    = 'MonitorSvc'
+|-Nnoisychip        = 64
+|-Nnoisycmodule     = 768
+|-Nnoisywafer       = 384
+|-OutputLevel       = 3  (default: 0)
+\----- (End of Private AlgTool SCT_MonitorConditionsTool/InDetSCT_MonitorConditionsTool) -----------
+/***** Private AlgTool SCT_ByteStreamErrorsTool/SCT_ByteStreamErrorsTool ***************************
+|-AuditFinalize         = False
+|-AuditInitialize       = False
+|-AuditReinitialize     = False
+|-AuditRestart          = False
+|-AuditStart            = False
+|-AuditStop             = False
+|-AuditTools            = False
+|-CheckRODSimulatedData = True
+|-ConfigTool            = PrivateToolHandle('SCT_ConfigurationConditionsTool/InDetSCT_ConfigurationConditionsTool')
+|-ContainerName         = 'StoreGateSvc+SCT_ByteStreamErrs'
+|-DetStore              = ServiceHandle('StoreGateSvc/DetectorStore')
+|-EvtStore              = ServiceHandle('StoreGateSvc')
+|-ExtraInputs           = []  (default: [])
+|-ExtraOutputs          = []  (default: [])
+|-FracContainerName     = 'StoreGateSvc+SCT_ByteStreamFrac'
+|-MonitorService        = 'MonitorSvc'
+|-OutputLevel           = 0
+|-SCTDetEleCollKey      = 'ConditionStore+SCT_DetectorElementCollection'
+|=/***** Private AlgTool SCT_ConfigurationConditionsTool/InDetSCT_ConfigurationConditionsTool ********
+| |-AuditFinalize           = False
+| |-AuditInitialize         = False
+| |-AuditReinitialize       = False
+| |-AuditRestart            = False
+| |-AuditStart              = False
+| |-AuditStop               = False
+| |-AuditTools              = False
+| |-CondKey                 = 'ConditionStore+SCT_ConfigurationCondData'
+| |-DetStore                = ServiceHandle('StoreGateSvc/DetectorStore')
+| |-EvtStore                = ServiceHandle('StoreGateSvc')
+| |-ExtraInputs             = []  (default: [])
+| |-ExtraOutputs            = []  (default: [])
+| |-MonitorService          = 'MonitorSvc'
+| |-OutputLevel             = 0
+| |-SCTDetEleCollKey        = 'ConditionStore+SCT_DetectorElementCollection'
+| |-checkStripsInsideModule = True
+| \----- (End of Private AlgTool SCT_ConfigurationConditionsTool/InDetSCT_ConfigurationConditionsTool) -----
+\----- (End of Private AlgTool SCT_ByteStreamErrorsTool/SCT_ByteStreamErrorsTool) ------------------
+Conditions db instance is  CONDBR2
+/***** Private AlgTool SCT_TdaqEnabledTool/InDetSCT_TdaqEnabledTool ********************************
+|-AuditFinalize     = False
+|-AuditInitialize   = False
+|-AuditReinitialize = False
+|-AuditRestart      = False
+|-AuditStart        = False
+|-AuditStop         = False
+|-AuditTools        = False
+|-CondKey           = 'ConditionStore+SCT_TdaqEnabledCondData'
+|-DetStore          = ServiceHandle('StoreGateSvc/DetectorStore')
+|-EvtStore          = ServiceHandle('StoreGateSvc')
+|-ExtraInputs       = []  (default: [])
+|-ExtraOutputs      = []  (default: [])
+|-MonitorService    = 'MonitorSvc'
+|-OutputLevel       = 0
+\----- (End of Private AlgTool SCT_TdaqEnabledTool/InDetSCT_TdaqEnabledTool) -----------------------
+/***** Private AlgTool SCT_ConditionsSummaryTool/InDetSCT_ConditionsSummaryTool ********************
+|-AuditFinalize     = False
+|-AuditInitialize   = False
+|-AuditReinitialize = False
+|-AuditRestart      = False
+|-AuditStart        = False
+|-AuditStop         = False
+|-AuditTools        = False
+|-ConditionsTools   = PrivateToolHandleArray(['SCT_ConfigurationConditionsTool/InDetSCT_ConfigurationConditionsTool','SCT_FlaggedConditionTool/InDetSCT_FlaggedConditionTool','SCT_ByteStreamErrorsTool/SCT_ByteStreamErrorsTool','SCT_ReadCalibDataTool/InDetSCT_ReadCalibDataTool','SCT_TdaqEnabledTool/InDetSCT_TdaqEnabledTool','SCT_MonitorConditionsTool/InDetSCT_MonitorConditionsTool'])
+|                   (default: '[]')
+|-DetStore          = ServiceHandle('StoreGateSvc/DetectorStore')
+|-EvtStore          = ServiceHandle('StoreGateSvc')
+|-ExtraInputs       = []  (default: [])
+|-ExtraOutputs      = []  (default: [])
+|-MonitorService    = 'MonitorSvc'
+|-OutputLevel       = 0
+\----- (End of Private AlgTool SCT_ConditionsSummaryTool/InDetSCT_ConditionsSummaryTool) -----------
+/***** Service TRT_CalDbSvc/TRT_CalDbSvc ***********************************************************
+|-AuditFinalize        = False
+|-AuditInitialize      = False
+|-AuditReinitialize    = False
+|-AuditRestart         = False
+|-AuditServices        = False
+|-AuditStart           = False
+|-AuditStop            = False
+|-DetectorStore        = ServiceHandle('DetectorStore')
+|-ErrorFolderName      = '/TRT/Calib/errors2d'
+|-ErrorReadKeyName     = 'ConditionStore+/TRT/Calib/errors2d'
+|-ErrorSlopeFolderName = '/TRT/Calib/slopes'
+|-OutputLevel          = 0
+|-RtFolderName         = '/TRT/Calib/RT'
+|-RtReadKeyName        = 'ConditionStore+/TRT/Calib/RT'
+|-SlopeReadKeyName     = 'ConditionStore+/TRT/Calib/slopes'
+|-StreamTool           = PublicToolHandle('AthenaOutputStreamTool/CondStream1')
+|-T0FolderName         = '/TRT/Calib/T0'
+|-T0ReadKeyName        = 'ConditionStore+/TRT/Calib/T0'
+|-calibTextFile        = ''
+\----- (End of Service TRT_CalDbSvc/TRT_CalDbSvc) --------------------------------------------------
+/***** Service TRT_StrawStatusSummarySvc/InDetTRTStrawStatusSummarySvc *****************************
+|-AuditFinalize           = False
+|-AuditInitialize         = False
+|-AuditReinitialize       = False
+|-AuditRestart            = False
+|-AuditServices           = False
+|-AuditStart              = False
+|-AuditStop               = False
+|-OutputLevel             = 0
+|-ToolSvc                 = ServiceHandle('ToolSvc')
+|-isGEANT4                = True  (default: True)
+|-statusTextFile          = ''
+|-statusTextFileHT        = ''
+|-statusTextFilePermanent = ''
+\----- (End of Service TRT_StrawStatusSummarySvc/InDetTRTStrawStatusSummarySvc) --------------------
+/***** Service TRT_ConditionsSummarySvc/InDetTRTConditionsSummaryService ***************************
+|-AuditFinalize     = False
+|-AuditInitialize   = False
+|-AuditReinitialize = False
+|-AuditRestart      = False
+|-AuditServices     = False
+|-AuditStart        = False
+|-AuditStop         = False
+|-OutputLevel       = 0
+|-ServiceList       = ServiceHandleArray(['InDetTRTStrawStatusSummarySvc'])  (default: '[]')
+\----- (End of Service TRT_ConditionsSummarySvc/InDetTRTConditionsSummaryService) ------------------
+Py:MuonAlign         INFO Running a reconstruction job on data: UseAlines='all' UseBlines='all' UseIlines=True UseAsBuilt=True
+Py:MuonRec           INFO Reading alignment constants from DB
+Py:MuonRec           INFO Reading CSC I-Lines from conditions database.
+Py:MuonRec           INFO Reading As-Built parameters from conditions database
+['HLT_j45', 'HLT_j85']
+Shortened traceback (most recent user call last):
+  File "/build/atnight/localbuilds/nightlies/master/build/install/Athena/22.0.2/InstallArea/x86_64-centos7-gcc8-opt/jobOptions/TrigUpgradeTest/simpleJetJob.py", line 60, in <module>
+    from TriggerMenuMT.HLTMenuConfig.Jet.JetSequenceDefs import jetRecoSequence
+  File "/cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc8-opt/lib/ROOT.py", line 463, in _importhook
+    return _orig_ihook( name, *args, **kwds )
+  File "/build/atnight/localbuilds/nightlies/master/build/install/Athena/22.0.2/InstallArea/x86_64-centos7-gcc8-opt/python/PyUtils/Helpers.py", line 30, in root6_importhook
+    m = oldimporthook(name, globals, locals, fromlist, level)
+
+ImportError: No module named JetSequenceDefs
+
+Py:Athena            INFO leaving with code 3: "an error occurred when importing a file"
