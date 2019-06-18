@@ -101,7 +101,7 @@ def scanLogfile():
     #print('FINAL',results)
 
 def printResults():
-    print('Checking for '+pattern+' in log.')
+    print('Checking for '+ ' '.join(pattern)+' in log.')
     print('Found messages in '+logFileAddress+':')
     if len(results) > 0:
         for msg in results: print(msg.strip('\n'))
