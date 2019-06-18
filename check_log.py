@@ -61,11 +61,12 @@ def parseConfig():
             if 'ignore' in aline:
                 line = aline.strip('ignore').strip().strip("'")
                 ignorePattern.append(line)
-    print(ignorePattern)
+    #print(ignorePattern)
 def scanLogfile():
     excludeStats = 0
     resultsA =[]
     pattern = []
+    tPattern = re.compile(traceback)
     global msgLevels
     global logFileAddress
     if args.warnings == True:
@@ -79,10 +80,18 @@ def scanLogfile():
     #print(pattern)
     logFileAddress = args.logfile
     with open(logFileAddress,'r') as logFile:
+        tracing = False
         for line in logFile:
+            if re.search(tPattern,line):
+                tracing = True
+            elif line =='\n':
+                tracing = False
             if re.search(msgLevels,line):
                 #print('Accepted',line);
                 resultsA.append(line)
+            elif tracing:
+                resultsA.append(line)
+            
     global results
     results = []
     for i in range(len(resultsA)):
@@ -95,5 +104,3 @@ def printResults():
     print('Found messages in',logFileAddress,':')
     for msg in results: print(msg)
 main()
-
-    
