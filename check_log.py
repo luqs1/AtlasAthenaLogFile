@@ -48,7 +48,7 @@ def parseOptions():
     )
     global args
     args = parser.parse_args()
-    print(args)
+    #print(args)
     if not (args.errors or args.warnings): #Will have to make it |not args.noterrors| if change made in line 42.
         print('error: at least one of errors and warnings must be enabled')
 
@@ -101,8 +101,8 @@ def scanLogfile():
     #print('FINAL',results)
 
 def printResults():
-    print('Checking for',pattern,'in log.')
-    print('Found messages in',logFileAddress,':')
+    print('Checking for '+pattern+' in log.')
+    print('Found messages in '+logFileAddress+':')
     if len(results) > 0:
         for msg in results: print(msg.strip('\n'))
         print("FAILURE : error/fatal found in log file - see "+logFileAddress+"\nNB replace rel_0 with actual nightly in this URL.")
