@@ -1,5 +1,6 @@
 import re
 import argparse
+import sys
 
 desc = 'Tool to check for error messages in a log file. By default ERROR, FATAL \
   and CRITICAL messages are considered. The config file may be used to \
@@ -11,6 +12,8 @@ epilogue = 'Note that at least one of errors and warnings must be true, otherwis
 errorRegex = ["^ERROR | ERROR | FATAL |CRITICAL |ABORT_CHAIN",
 "^Exception\:|^Caught signal|^Core dump|Traceback|Shortened traceback|stack trace|^Algorithm stack\:|IncludeError|ImportError|AttributeError|inconsistent use of tabs and spaces in indentation\
 |glibc detected|tcmalloc\: allocation failed|athenaHLT.py\: error"]
+
+exitcode = 0
 
 traceback = ['Traceback|Shortened traceback|^Algorithm stack']
 
@@ -51,6 +54,7 @@ def parseOptions():
     print(args)
     if not (args.errors or args.warnings): #Will have to make it |not args.noterrors| if change made in line 42.
         print('error: at least one of errors and warnings must be enabled')
+        sys.exit(4)
 
 def parseConfig():
     global ignorePattern
@@ -79,18 +83,21 @@ def scanLogfile():
     #print(igLevels)
     #print(pattern)
     logFileAddress = args.logfile
-    with open(logFileAddress,'r') as logFile:
-        tracing = False
-        for line in logFile:
-            if re.search(tPattern,line):
-                tracing = True
-            elif line =='\n':
-                tracing = False
-            if re.search(msgLevels,line):
-                #print('Accepted',line);
-                resultsA.append(line)
-            elif tracing:
-                resultsA.append(line)
+    try:
+        with open(logFileAddress,'r') as logFile:
+            tracing = False
+            for line in logFile:
+                if re.search(tPattern,line):
+                    tracing = True
+                elif line =='\n':
+                    tracing = False
+                if re.search(msgLevels,line):
+                    #print('Accepted',line);
+                    resultsA.append(line)
+                elif tracing:
+                    resultsA.append(line)
+        except:
+            sys.exit(2)
     if args.showexcludestats:
         seperateIgnoreRegex = [re.compile(line) for line in ignorePattern]
         global ignoreDict
@@ -118,5 +125,7 @@ def printResults():
     if len(results) > 0:
         for msg in results: print(msg.strip('\n'))
         print("FAILURE : error/fatal found in log file - see",logFileAddress,"\nNB replace rel_0 with actual nightly in this URL.")
+            sys.exit(10)
 
-main()
+main() #Changed exit codes to absolute values. old code = 256 - oldcode = newcode
+
