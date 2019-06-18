@@ -48,7 +48,7 @@ def parseOptions():
     )
     global args
     args = parser.parse_args()
-    #print(args)
+    print(args)
     if not (args.errors or args.warnings): #Will have to make it |not args.noterrors| if change made in line 42.
         print('error: at least one of errors and warnings must be enabled')
 
@@ -65,7 +65,6 @@ def parseConfig():
 def scanLogfile():
     excludeStats = 0
     resultsA =[]
-    global pattern
     pattern = []
     tPattern = re.compile('|'.join(traceback))
     global msgLevels
@@ -92,19 +91,32 @@ def scanLogfile():
                 resultsA.append(line)
             elif tracing:
                 resultsA.append(line)
-            
+    if args.showexcludestats:
+        seperateIgnoreRegex = [re.compile(line) for line in ignorePattern]
+        global ignoreDict
+        ignoreDict = {line:False for line in ignorePattern}       
     global results
     results = []
     for i in range(len(resultsA)):
         if not re.search(igLevels,resultsA[i]):
             results.append(resultsA[i])
+        elif args.showexcludestats:
+            for i in range(len(seperateIgnoreRegex)):
+                if re.search(seperateIgnoreRegex[i],line):
+                    ignoreDict[ignorePattern[i]] = True
     #print('FINAL',results)
 
 def printResults():
-    print('Checking for '+ ' '.join(pattern)+' in log.')
-    print('Found messages in '+logFileAddress+':')
+    print('Checking for',msgLevels,'in log.')
+    if args.showexcludestats:
+        print('Ignored:')
+        for i in ignoreDict:
+            if ignoreDict[i]:
+                print(i)
+        print('\n')
+    print('Found messages in',logFileAddress,':')
     if len(results) > 0:
         for msg in results: print(msg.strip('\n'))
-        print("FAILURE : error/fatal found in log file - see "+logFileAddress+"\nNB replace rel_0 with actual nightly in this URL.")
+        print("FAILURE : error/fatal found in log file - see",logFileAddress,"\nNB replace rel_0 with actual nightly in this URL.")
 
 main()
