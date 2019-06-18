@@ -103,7 +103,7 @@ def printResults():
     print('Checking for',msgLevels,'in log.')
     print('Found messages in',logFileAddress,':')
     if len(results) > 0:
-        for msg in results: print(msg)
+        for msg in results: print(msg.strip('\n'))
         print("FAILURE : error/fatal found in log file - see",logFileAddress,"\nNB replace rel_0 with actual nightly in this URL.")
 
 main()
