@@ -65,6 +65,7 @@ def parseConfig():
 def scanLogfile():
     excludeStats = 0
     resultsA =[]
+    global pattern
     pattern = []
     tPattern = re.compile('|'.join(traceback))
     global msgLevels
@@ -100,7 +101,7 @@ def scanLogfile():
     #print('FINAL',results)
 
 def printResults():
-    print('Checking for',msgLevels,'in log.')
+    print('Checking for',pattern,'in log.')
     print('Found messages in',logFileAddress,':')
     if len(results) > 0:
         for msg in results: print(msg.strip('\n'))
