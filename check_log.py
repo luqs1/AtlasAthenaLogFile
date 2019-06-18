@@ -96,6 +96,7 @@ def scanLogfile():
                     resultsA.append(line)
     except:
         sys.exit(2)
+
     if args.showexcludestats:
         seperateIgnoreRegex = [re.compile(line) for line in ignorePattern]
         global ignoreDict
