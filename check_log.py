@@ -12,13 +12,15 @@ errorRegex = ["^ERROR | ERROR | FATAL |CRITICAL |ABORT_CHAIN",
 "^Exception\:|^Caught signal|^Core dump|Traceback|Shortened traceback|stack trace|^Algorithm stack\:|IncludeError|ImportError|AttributeError|inconsistent use of tabs and spaces in indentation\
 |glibc detected|tcmalloc\: allocation failed|athenaHLT.py\: error"]
 
+traceback = ['Traceback|Shortened traceback|^Algorithm stack']
+
 warningRegex = ['WARNING']
 
 def main():
     parseOptions()
     parseConfig()
     scanLogfile()
-    #printResults()
+    printResults()
 
 def parseOptions():
     parser = argparse.ArgumentParser(description=desc, epilog=epilogue)
@@ -62,27 +64,36 @@ def parseConfig():
     print(ignorePattern)
 def scanLogfile():
     excludeStats = 0
-    results =[]
+    resultsA =[]
     pattern = []
+    global msgLevels
+    global logFileAddress
     if args.warnings == True:
         pattern.extend(warningRegex)
     if args.errors == True:
         pattern.extend(errorRegex)
     msgLevels = re.compile('|'.join(pattern))
-    print(msgLevels)
+    #print(msgLevels)
     igLevels = re.compile('|'.join(ignorePattern))
-    print(igLevels)
+    #print(igLevels)
     #print(pattern)
     logFileAddress = args.logfile
     with open(logFileAddress,'r') as logFile:
         for line in logFile:
             if re.search(msgLevels,line):
-                print('Accepted',line);
-                results.append(line)
-    results1 = []
-    for i in range(len(results)):
-        if not re.search(igLevels,results[i]):
-            pass
-        else:
-            results1.append(results[i])
+                #print('Accepted',line);
+                resultsA.append(line)
+    global results
+    results = []
+    for i in range(len(resultsA)):
+        if not re.search(igLevels,resultsA[i]):
+            results.append(resultsA[i])
+    #print('FINAL',results)
+
+def printResults():
+    print('Checking for',msgLevels,'in log.')
+    print('Found messages in',logFileAddress,':')
+    for msg in results: print(msg)
 main()
+
+    
