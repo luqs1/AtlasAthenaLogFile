@@ -12,13 +12,15 @@ errorRegex = ["^ERROR | ERROR | FATAL |CRITICAL |ABORT_CHAIN",
 "^Exception\:|^Caught signal|^Core dump|Traceback|Shortened traceback|stack trace|^Algorithm stack\:|IncludeError|ImportError|AttributeError|inconsistent use of tabs and spaces in indentation\
 |glibc detected|tcmalloc\: allocation failed|athenaHLT.py\: error"]
 
+traceback = ['Traceback|Shortened traceback|^Algorithm stack']
+
 warningRegex = ['WARNING']
 
 def main():
     parseOptions()
     parseConfig()
     scanLogfile()
-    #printResults()
+    printResults()
 
 def parseOptions():
     parser = argparse.ArgumentParser(description=desc, epilog=epilogue)
@@ -59,30 +61,63 @@ def parseConfig():
             if 'ignore' in aline:
                 line = aline.strip('ignore').strip().strip("'")
                 ignorePattern.append(line)
-    print(ignorePattern)
+    #print(ignorePattern)
 def scanLogfile():
     excludeStats = 0
-    results =[]
+    resultsA =[]
     pattern = []
+    tPattern = re.compile('|'.join(traceback))
+    global msgLevels
+    global logFileAddress
     if args.warnings == True:
         pattern.extend(warningRegex)
     if args.errors == True:
         pattern.extend(errorRegex)
     msgLevels = re.compile('|'.join(pattern))
-    print(msgLevels)
+    #print(msgLevels)
     igLevels = re.compile('|'.join(ignorePattern))
-    print(igLevels)
+    #print(igLevels)
     #print(pattern)
     logFileAddress = args.logfile
     with open(logFileAddress,'r') as logFile:
+        tracing = False
         for line in logFile:
+            if re.search(tPattern,line):
+                tracing = True
+            elif line =='\n':
+                tracing = False
             if re.search(msgLevels,line):
-                print('Accepted',line);
-                results.append(line)
-    results1 = []
-    for i in range(len(results)):
-        if not re.search(igLevels,results[i]):
-            pass
-        else:
-            results1.append(results[i])
+                #print('Accepted',line);
+                resultsA.append(line)
+            elif tracing:
+                resultsA.append(line)
+    if args.showexcludestats:
+        seperateIgnoreRegex = [re.compile(line) for line in ignorePattern]
+        global ignoreDict
+        ignoreDict = {line:False for line in ignorePattern}       
+    global results
+    results = []
+    for i in range(len(resultsA)):
+        if not re.search(igLevels,resultsA[i]):
+            results.append(resultsA[i])
+        elif args.showexcludestats:
+            for i in range(len(seperateIgnoreRegex)):
+                if re.search(seperateIgnoreRegex[i],line):
+                    ignoreDict[ignorePattern[i]] = True
+    #print('FINAL',results)
+
+def printResults():
+    print('Checking for',msgLevels,'in log.')
+    if args.showexcludestats:
+        print('Ignored:')
+        for i in ignoreDict:
+            if ignoreDict[i]:
+                print(i)
+        print('\n')
+    print('Found messages in',logFileAddress,':')
+    if len(results) > 0:
+        for msg in results: print(msg.strip('\n'))
+        print("FAILURE : error/fatal found in log file - see",logFileAddress,"\nNB replace rel_0 with actual nightly in this URL.")
+		
+
 main()

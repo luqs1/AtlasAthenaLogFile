@@ -1,0 +1,9 @@
+Trigger_TrigValidation_TrigValTools_bin_check_log.pl: checking for <<^ERROR | ERROR | FATAL |CRITICAL |ABORT_CHAIN |^Exception:|^Caught signal|^Core dump|Traceback|Shortened traceback|stack trace|^Algorithm stack:|IncludeError|ImportError|AttributeError|inconsistent use of tabs and spaces in indentation|glibc detected|tcmalloc: allocation failed|athenaHLT.py: error>> in log.
+Found messages in athena.log.1 (5):
+Shortened traceback (most recent user call last):
+  File "/build/atnight/localbuilds/nightlies/master/build/install/Athena/22.0.2/InstallArea/x86_64-centos7-gcc8-opt/jobOptions/TrigUpgradeTest/pebTest.py", line 34, in <module>
+    from TriggerMenuMT.HLTMenuConfig.Egamma.ElectronSequenceSetup import electronMenuSequence
+
+ImportError: cannot import name electronMenuSequence
+FAILURE : error/fatal found in log file - see /net/home/ppd/bju38816/AtlasAthenaLogFile/athena.log.1
+NB replace rel_0 with actual nightly in this URL.

@@ -1,0 +1,8 @@
+Namespace(config='checklogTrigUpgradeTest.conf', errors=True, logfile='athena.log.1', showexcludestats=False, warnings=False)
+('Checking for', <_sre.SRE_Pattern object at 0x211db50>, 'in log.')
+('Found messages in', 'athena.log.1', ':')
+Shortened traceback (most recent user call last):
+  File "/build/atnight/localbuilds/nightlies/master/build/install/Athena/22.0.2/InstallArea/x86_64-centos7-gcc8-opt/jobOptions/TrigUpgradeTest/pebTest.py", line 34, in <module>
+    from TriggerMenuMT.HLTMenuConfig.Egamma.ElectronSequenceSetup import electronMenuSequence
+ImportError: cannot import name electronMenuSequence
+('FAILURE : error/fatal found in log file - see', 'athena.log.1', '\nNB replace rel_0 with actual nightly in this URL.')
