@@ -66,7 +66,7 @@ def scanLogfile():
     excludeStats = 0
     resultsA =[]
     pattern = []
-    tPattern = re.compile(traceback)
+    tPattern = re.compile('|'.join(traceback))
     global msgLevels
     global logFileAddress
     if args.warnings == True:
