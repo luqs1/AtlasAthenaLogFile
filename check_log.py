@@ -56,17 +56,19 @@ def parseOptions():
 
 def parseConfig():
     global ignorePattern
+    global noConfig
     ignorePattern = []
     configFileAddress = args.config
     try:
-      with open(configFileAddress,'r') as configFile:
-          for aline in configFile:
-              if 'ignore' in aline:
+        with open(configFileAddress,'r') as configFile:
+            for aline in configFile:
+                if 'ignore' in aline:
                   line = aline.strip('ignore').strip().strip("'")
                   ignorePattern.append(line)
+        noConfig = False
     except:
       print('NO CONFIG FILE FOUND, NOTHING WILL BE IGNORED')
-      ignorePattern =[]
+      noConfig = True
     #print(ignorePattern)
 def scanLogfile():
     excludeStats = 0
@@ -100,12 +102,15 @@ def scanLogfile():
                     resultsA.append(line)
     except:
         sys.exit(2)
-    if args.showexcludestats:
+    if args.showexcludestats and not noConfig:
         seperateIgnoreRegex = [re.compile(line) for line in ignorePattern]
         global ignoreDict
         ignoreDict = {line:False for line in ignorePattern}       
     global results
     results = []
+    if noConfig:
+        results = resultsA
+        return
     for i in range(len(resultsA)):
         if not re.search(igLevels,resultsA[i]):
             results.append(resultsA[i])
@@ -114,10 +119,11 @@ def scanLogfile():
                 if re.search(seperateIgnoreRegex[i],line):
                     ignoreDict[ignorePattern[i]] = True
     #print('FINAL',results)
+    
 
 def printResults():
     print('Checking for',msgLevels,'in log.')
-    if args.showexcludestats:
+    if args.showexcludestats and not noConfig:
         print('Ignored:')
         for i in ignoreDict:
             if ignoreDict[i]:
@@ -130,3 +136,5 @@ def printResults():
         sys.exit(10)
 
 main()
+
+ 
