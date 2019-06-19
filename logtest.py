@@ -1,12 +1,10 @@
 
 # Returns check_log's exit code for a given log
 # Used to test check_log is working correctly
-
-import os
+import subprocess
 class Test:
     def __init__(self):
         pass
-
     def testcase(self,fileAddress,**kwargs):
         modifiers= ''
         if 'config' in kwargs:
@@ -33,7 +31,6 @@ class Test:
             modifiers += '--warnings'
         if cStats:
             modifiers += '--showexcludestats'
-        exitCode = os.system('python check_log.py --config '+config+' '+modifiers+' ' +fileAddress +' >tempoutlog.txt')
-        os.system('rm tempoutlog.txt')
+        exitCode = subprocess.call('python check_log.py --config '+config+' '+modifiers+' ' +fileAddress +' >tempoutlog.txt', shell = True) #if upgrading to Python 3+, this
+        subprocess.call('rm tempoutlog.txt', shell = True) #and this require changing
         return exitCode
-
