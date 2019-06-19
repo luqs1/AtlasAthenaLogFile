@@ -1,7 +1,12 @@
+
+# Returns check_log's exit code for a given log
+# Used to test check_log is working correctly
+
 import os
 class Test:
     def __init__(self):
         pass
+
     def testcase(self,fileAddress,**kwargs):
         modifiers= ''
         if 'config' in kwargs:
@@ -31,3 +36,4 @@ class Test:
         exitCode = os.system('python check_log.py --config '+config+' '+modifiers+' ' +fileAddress +' >tempoutlog.txt')
         os.system('rm tempoutlog.txt')
         return exitCode
+
