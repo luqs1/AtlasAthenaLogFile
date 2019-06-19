@@ -62,7 +62,7 @@ def parseConfig():
     global noConfig
     ignorePattern = []
     configFileAddress = args.config
-    try: 
+    try:
         with open(configFileAddress,'r') as configFile:
             for aline in configFile:
                 if 'ignore' in aline:
@@ -117,6 +117,7 @@ def scanLogfile():
             for i in range(len(seperateIgnoreRegex)):
                 if re.search(seperateIgnoreRegex[i],line):
                     ignoreDict[ignorePattern[i]] = True
+
   
 def printResults():
     global pattern
@@ -134,3 +135,4 @@ def printResults():
         sys.exit(10)
 
 main()
+

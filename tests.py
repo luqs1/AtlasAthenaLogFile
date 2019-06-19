@@ -2,6 +2,7 @@ import logtest
 
 invigilator = logtest.Test()
 
+
 # Replace testExpected with the names and expected exit codes of the logs you're using to test
 testExpected = {"athena.log.1": 10, "athena.log.2": 10, "athena.log": 0}
 testOutcome = testExpected.copy()
