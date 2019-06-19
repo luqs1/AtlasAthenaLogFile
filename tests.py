@@ -9,9 +9,9 @@ testOutcome = testExpected.copy()
 
 
 def testlog(logName, expectedValue):
-	print(expectedValue)
+	#print(expectedValue)
 	realValue = invigilator.testcase(logName,config='t.conf')
-	print(realValue)
+	#print(realValue)
 	return (realValue == expectedValue) # If the values match, returns True
 
 
