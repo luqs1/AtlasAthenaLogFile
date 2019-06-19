@@ -1,3 +1,6 @@
+# Returns check_log's exit code for a given log
+# Used to test check_log is working correctly
+
 import os
 class Test:
     def __init__(self):
