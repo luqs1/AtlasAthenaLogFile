@@ -58,11 +58,16 @@ def parseConfig():
     global ignorePattern
     ignorePattern = []
     configFileAddress = args.config
-    with open(configFileAddress,'r') as configFile:
-        for aline in configFile:
-            if 'ignore' in aline:
-                line = aline.strip('ignore').strip().strip("'")
-                ignorePattern.append(line)
+    try:
+      with open(configFileAddress,'r') as configFile:
+          for aline in configFile:
+              if 'ignore' in aline:
+                  line = aline.strip('ignore').strip().strip("'")
+                  ignorePattern.append(line)
+    except:
+      print('NO CONFIG FILE FOUND, NOTHING WILL BE IGNORED')
+      ignorePattern = []
+    
     #print(ignorePattern)
 def scanLogfile():
     excludeStats = 0
