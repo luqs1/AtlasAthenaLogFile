@@ -1,16 +1,14 @@
 import unittest
-test = unittest.Test()
-test.testlog
-#assert(test.testlog(parameters) == errorcode)
+
+testExpected = {"athena.log.1": 10, "athena.log.2": 10, "athena.log": 0}
+testOutcome = testExpected.copy()
+
 
 def testlog(logName, expectedValue):
-	logName.assert(exitcode == expectedValue) # fix this stuff later
+	return(assertEqual(RESULTOFTEST, expectedValue)) # fix this
 
-#for i in range(5):
-#	l.append((test.testlog('athena.log.' + str(i + 1))))
-	
-testExpected = {"athena.log.1": 10, "athena.log.2": 10, "athena.log": 0}
-testOutcome =
+#test = Test() 
+#test.testlog()
 
-for k in testLogs:
-	result = test.testlog(k, testLogs['k'])
+for k, v in testLogs.items():
+	testOutcome[k] = testlog(k, v)
