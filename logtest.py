@@ -2,9 +2,32 @@ import os
 class Test:
     def __init__(self):
         pass
-    def testcase(self,fileAddress,config,**kwargs):
-        exitCode = os.system('python check_log.py --config '+config+' '+fileAddress + ' >ignore.txt')
-        os.system('rm ignore.txt')
+    def testcase(self,fileAddress,**kwargs):
+        modifiers= ''
+        if 'config' in kwargs:
+            config = kwargs['config']
+        else:
+            config = 'test_log.conf'
+        if 'errors' in kwargs:	
+            cErrors = kwargs['errors']	
+        else:	
+            cErrors = True
+        if 'warnings' in kwargs:	
+            cWarnings = kwargs['warnings']	
+        else:	
+            cWarnings = False	
+        if 'showExcludeStats' in kwargs:	
+            cStats = kwargs['showExcludeStats']	
+        else:
+            cStats = False
+        if not (cErrors or cWarnings):	
+            return 4
+        if not cErrors: #if --noerrors change has been made, remove not
+            modifiers += '--errors' #and make this --noerrors
+        if cWarnings:
+            modifiers += '--warnings'
+        if cStats:
+            modifiers += '--showexcludestats'
+        exitCode = os.system('python check_log.py --config '+config+' '+modifiers+' ' +fileAddress +' >tempoutlog.txt')
+        os.system('rm tempoutlog.txt')
         return exitCode
-a = Test()
-print(a.testcase('athena.log.txt','t.conf'))
